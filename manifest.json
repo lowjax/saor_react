@@ -1,0 +1,10 @@
+{
+    "name": "noteTracker Application",
+    "short_name": "noteTracker",
+    "description": "an application for managing notes",
+    "scope": ".",
+    "display": "standalone",
+    "start_url": "/",
+    "theme_color": "fff",
+    "background_color": "#fff"
+}
