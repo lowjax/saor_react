@@ -6,9 +6,16 @@ import IndexAdmin from "./IndexAdmin"
 import CreateAccountUser from "./CreateAccountUser";
 import CreateAccountAdmin from "./CreateAccountAdmin";
 import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route,  } from "react-router-dom"
+// import { useCookies } from "react-cookie";
 
 export default function Login() {
   // code funtionality for posting user login 
+  // //cookie provider details 
+  // const [cookie, setCookie] = useCookies(['user']);
+
+
+ //
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -23,7 +30,8 @@ export default function Login() {
   }
 
 
- const loginUser = () => {
+ const loginUser = (event) => {
+  event.preventDefault()
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   // myHeaders.append("Cookie", "connect.sid=s%3AeoWXMsnyAi_F7xK6t9SDqDADcPiah1hN.D7oNoRfUQQXXb9z3cCW0mtK5TOdoIsQHHFcv%2Bo0W9cM");
@@ -51,9 +59,19 @@ let urlencoded = please
     // .then(result => console.log(result))
     // .catch(error => console.log('error', error));
     .then((response) => {
-      console.log(response);
-      alert("Success! You are now signed in.");
-      return;
+      if (response.status == 200) {
+        console.log(response);
+        alert("Success! You are now signed in.");
+        // setCookie('email', email, { path: '/' });
+        // setCookie('password', password, { path: '/' });
+        window.location.href= "IndexUser"
+        return
+      }
+      //IF invalid password, do something to tell user
+      else {
+        alert("Invalid password, try again.");
+      }
+        // window.location.href= "IndexUser";
   })
   .catch((e) => {
       console.log(bodyContent);
@@ -90,7 +108,7 @@ let urlencoded = please
               onChange ={onChangePassword}
             />
           </div>
-          <button type="submit"></button>
+          <button type="submit"  className="btn btn-primary d-block w-100"> Login</button>
           </form>
             {/* <Link
               className="btn btn-primary d-block w-100"

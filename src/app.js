@@ -1,8 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route, Redirect } from "react-router-dom"
 import { Link } from "react-router-dom"
 import React from "react"
 import { useState } from "react";
-
+import { useCookies } from "react-cookie";
 
 
 
@@ -76,6 +76,7 @@ export const App = () => {
         const [error, setError] = React.useState('');
         const [isLoading, setIsLoading] = React.useState(false);
         const [lightMode, setLightMode] = React.useState(false);
+       
 
   // useEffect here runs everytime a component loads or theme is changed
   // and checks which theme to style with based on whats set in localStorage

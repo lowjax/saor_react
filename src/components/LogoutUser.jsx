@@ -71,7 +71,7 @@ var myHeaders = new Headers();
           By clicking below you are exiting SAOR, all unsaved progressed will
           deleted. Are you sure you want to logout?
         </p>
-        <a id="logOut" href="../access/login.html">
+        <a id="logOut" href="../login.html">
           <button className="btn btn-primary" id="logoutButton" type="button" onSubmit={LogoutUser}>
             LOGOUT
           </button>
