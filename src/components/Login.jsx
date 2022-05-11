@@ -31,6 +31,7 @@ export default function Login() {
 
 
  const loginUser = (event) => {
+
   event.preventDefault()
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -53,7 +54,7 @@ let urlencoded = please
     redirect: 'follow'
   };
 
-  
+
   fetch("http://localhost:1235/api/users/login", requestOptions)
     // .then(response => response.text())
     // .then(result => console.log(result))

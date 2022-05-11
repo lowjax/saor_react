@@ -5,117 +5,107 @@ import FavoritesUser from "./FavoritesUser";
 import IndexUser from "./IndexUser";
 import Login from "./Login";
 import LogoutUser from "./LogoutUser";
-import ThemeUser from "./ThemeUser"
+import ThemeUser from "./ThemeUser";
 import SelectionUser from "./SelectionUser";
 import BackAarow from "../img/BackArrow.svg";
 import SoarLogo from "../img/SoarLogo.svg";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-
 export default function NavbarUser() {
   return (
     <div>
-      
-        <nav
-          className="navbar navbar-light navbar-expand-lg navigation-clean"
-          id="soarNavBar"
-        >
-          <div className="container">
-            <a href="index.html">
-              <img id="backArrow" src={BackAarow} height={30} />
-            </a>
-            <a href="index.html">
-              <img id="soarLogo" src={SoarLogo} height={30} />
-            </a>
-            <button
-              data-bs-toggle="collapse"
-              className="navbar-toggler"
-              data-bs-target="#navcol-1"
-            >
-              <span className="visually-hidden">Toggle navigation</span>
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navcol-1">
+      <nav
+        className="navbar navbar-light navbar-expand-lg navigation-clean"
+        id="soarNavBar"
+      >
+        <div className="container">
+          <img id="backArrow" src={BackAarow} height={30} />
+
+          <img id="soarLogo" src={SoarLogo} height={30} />
+
+          <button
+            data-bs-toggle="collapse"
+            className="navbar-toggler"
+            data-bs-target="#navcol-1"
+          >
+            <span className="visually-hidden">Toggle navigation</span>
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navcol-1">
             <ul className="navbar-nav">
-                
-            <Link
-                  className="nav-link text-center"
-                  as={Link}
-                  to="/IndexUser"
-                  element={IndexUser}
-                >
-                  Home
-                </Link>
-                
-                <Link
-                  className="nav-link text-center"
-                  as={Link}
-                  to="/ContentListUser"
-                  element={ContentListUser}
-                >
-                  Content
-                </Link>
+              <Link
+                className="nav-link text-center"
+                as={Link}
+                to="/IndexUser"
+                element={IndexUser}
+              >
+                Home
+              </Link>
 
-                <Link
-                  className="nav-link text-center"
-                  as={Link}
-                  to="/SelectionUser"
-                  element={SelectionUser}
-                >
-                  Filter Screen
-                </Link>
+              <Link
+                className="nav-link text-center"
+                as={Link}
+                to="/ContentListUser"
+                element={ContentListUser}
+              >
+                Content
+              </Link>
 
-                <Link
-                  className="nav-link text-center"
-                  as={Link}
-                  to="/FavoritesUser"
-                  element={FavoritesUser}
-                >
-                  Favorites
-                </Link>
+              <Link
+                className="nav-link text-center"
+                as={Link}
+                to="/SelectionUser"
+                element={SelectionUser}
+              >
+                Filter Screen
+              </Link>
 
+              <Link
+                className="nav-link text-center"
+                as={Link}
+                to="/FavoritesUser"
+                element={FavoritesUser}
+              >
+                Favorites
+              </Link>
 
-                <Link
-                  className="nav-link text-center"
-                  as={Link}
-                  to="/ContactUser"
-                  element={ContactUser}
-                >
-                  Contact User
-                </Link>
+              <Link
+                className="nav-link text-center"
+                as={Link}
+                to="/ContactUser"
+                element={ContactUser}
+              >
+                Contact User
+              </Link>
 
+              <Link
+                className="nav-link text-center"
+                as={Link}
+                to="/ThemeUser"
+                element={ThemeUser}
+              >
+                Theme Settings
+              </Link>
 
-
-                <Link
-                  className="nav-link text-center"
-                  as={Link}
-                  to="/ThemeUser"
-                  element={ThemeUser}
-                >
-                  Theme Settings
-                </Link>
-
-
-                <Link
-                  className="nav-link text-center"
-                  as={Link}
-                  to="/LogoutUser"
-                  element={LogoutUser}
-                >
-                  Logout
-                </Link>
-
-              </ul>
-            </div>
+              <Link
+                className="nav-link text-center"
+                as={Link}
+                to="/LogoutUser"
+                element={LogoutUser}
+              >
+                Logout
+              </Link>
+            </ul>
           </div>
-        </nav>
-     
+        </div>
+      </nav>
     </div>
   );
 }
 
-{/* <Router>
+{
+  /* <Router>
   <nav
     className="navbar navbar-light navbar-expand-lg navigation-clean"
     id="soarNavBar"
@@ -166,4 +156,5 @@ export default function NavbarUser() {
     <Route path="/show/:id" element={<Show />} />
     <Route path="*" element={<ErrorPage />} />
   </Routes>
-</Router>; */}
+</Router>; */
+}

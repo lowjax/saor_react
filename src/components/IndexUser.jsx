@@ -7,9 +7,9 @@ export default function IndexUser() {
     <div>
       <NavbarUser />
       <div id="bodyDigramContainer">
-        <a href="selection.html">
+        <button type="button">
           <img id="bodyDiagram" src={BodyDiagram} height={40} />
-        </a>
+        </button>
       </div>
       <div id="bodDiagramText">
         <h1>Select area of injury</h1>

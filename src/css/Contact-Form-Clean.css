@@ -193,6 +193,7 @@ logoutHeader {
 #logoutParagraph {
   display: flex;
   justify-content: center;
+  /* padding-left: 1em; */
   width: 20em;
   margin: 1em;
 }
