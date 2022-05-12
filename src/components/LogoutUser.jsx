@@ -40,6 +40,7 @@ export default function LogoutUser() {
       headers: myHeaders,
       // body: urlencoded,
       // redirect: "follow",
+      credentials: 'include'
     };
     console.log('Before Fetch')
 
@@ -53,8 +54,8 @@ export default function LogoutUser() {
           console.log(response);
 
           alert("Success! You are now logged out.");
-
-          // return;
+          window.location.href= "Login"
+          return;
         }
       })
       .catch((e) => {

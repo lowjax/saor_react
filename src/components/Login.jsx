@@ -51,7 +51,8 @@ let urlencoded = please
     method: 'POST',
     headers: myHeaders,
     body: urlencoded,
-    redirect: 'follow'
+    // redirect: 'follow', 
+    credentials: 'include'
   };
 
 
@@ -110,6 +111,18 @@ let urlencoded = please
             />
           </div>
           <button type="submit"  className="btn btn-primary d-block w-100"> Login</button>
+          <Link
+              className="btn btn-primary d-block w-100"
+              role="button"
+              id="createAccount"
+              as={Link}
+              to="/CreateAccountUser"
+              element={CreateAccountUser}
+              data-bs-target="access/index.html"
+            >
+              Create Account
+            </Link>
+          
           </form>
             {/* <Link
               className="btn btn-primary d-block w-100"
