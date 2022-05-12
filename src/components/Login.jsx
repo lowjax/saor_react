@@ -1,62 +1,60 @@
 import React from "react";
-import SoarLogo from "../img/SoarLogo.svg"
+import SoarLogo from "../img/SoarLogo.svg";
 import IndexUser from "./IndexUser";
 import { Link } from "react-router-dom";
-import IndexAdmin from "./IndexAdmin"
+import IndexAdmin from "./IndexAdmin";
 import CreateAccountUser from "./CreateAccountUser";
 import CreateAccountAdmin from "./CreateAccountAdmin";
-import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route,  } from "react-router-dom"
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
 // import { useCookies } from "react-cookie";
 
 export default function Login() {
-  // code funtionality for posting user login 
-  // //cookie provider details 
+  // code funtionality for posting user login
+  // //cookie provider details
   // const [cookie, setCookie] = useCookies(['user']);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
- //
-
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  // Change values based on event, the event being the form input
   const onChangeEmail = (e) => {
     const email = e.target.value;
     setEmail(email);
-  }
+  };
   const onChangePassword = (e) => {
     const password = e.target.value;
     setPassword(password);
-  }
-
-
- const loginUser = (event) => {
-
-  event.preventDefault()
-  var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  // myHeaders.append("Cookie", "connect.sid=s%3AeoWXMsnyAi_F7xK6t9SDqDADcPiah1hN.D7oNoRfUQQXXb9z3cCW0mtK5TOdoIsQHHFcv%2Bo0W9cM");
-  
-  // var urlencoded = new URLSearchParams();
-  let please = JSON.stringify({
-    email: email,
-    password: password
-})
-let urlencoded = please
-  // var urlencoded = JSON.stringify({email: email, password: password})
-
-  // urlencoded.append("email", "password");
-  
-  var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: urlencoded,
-    // redirect: 'follow', 
-    credentials: 'include'
   };
 
+  const loginUser = (event) => {
+    event.preventDefault();
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    // myHeaders.append("Cookie", "connect.sid=s%3AeoWXMsnyAi_F7xK6t9SDqDADcPiah1hN.D7oNoRfUQQXXb9z3cCW0mtK5TOdoIsQHHFcv%2Bo0W9cM");
 
-  fetch("http://localhost:1235/api/users/login", requestOptions)
+    // var urlencoded = new URLSearchParams();
+    let please = JSON.stringify({
+      email: email,
+      password: password,
+    });
+    let urlencoded = please;
+    // var urlencoded = JSON.stringify({email: email, password: password})
+
+    // urlencoded.append("email", "password");
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: urlencoded,
+      // redirect: 'follow',
+      credentials: "include",
+    };
+
+    
+    fetch("http://localhost:1235/api/users/login", requestOptions)
     // .then(response => response.text())
     // .then(result => console.log(result))
     // .catch(error => console.log('error', error));
@@ -66,29 +64,61 @@ let urlencoded = please
         alert("Success! You are now signed in.");
         // setCookie('email', email, { path: '/' });
         // setCookie('password', password, { path: '/' });
-        window.location.href= "IndexUser"
-        return
+        window.location.href = "IndexUser";
+        return;
       }
       //IF invalid password, do something to tell user
       else {
         alert("Invalid password, try again.");
       }
-        // window.location.href= "IndexUser";
-  })
-  .catch((e) => {
+      // window.location.href= "IndexUser";
+    })
+    .catch((e) => {
       console.log(bodyContent);
       console.log(e);
       alert("Sorry, something isn't right");
       return;
-})}
+      
+    })
+    .finally(() => {
+      setLoading((true));
+    });
+  }
+  //
+  useEffect(() => {
+
+    // const [loading, setLoading] = useState(true);
+
+
+    // const [email, setEmail] = useState("");
+    // const [password, setPassword] = useState("");
+    // Change values based on event, the event being the form input
+    // const onChangeEmail = (e) => {
+    //   const email = e.target.value;
+    //   setEmail(email);
+    // };
+    // const onChangePassword = (e) => {
+    //   const password = e.target.value;
+    //   setPassword(password);
+    // };
   
+   
+  
+     
+    
+      
+  } , [])
 
   return (
     <div>
+      {loading && <Spinner animation="border" />}
+      {error && (
+        <div>{`There is a problem fetching the post data - ${error}`}</div>
+      )}
       <section className="login-clean">
         <form onSubmit={loginUser}>
           <h2 className="visually-hidden">Login Form</h2>
-          <img src={SoarLogo}  heigh={40}/>
+          <img src={SoarLogo} heigh={40} />
           <div className="illustration"></div>
           <div className="mb-3">
             <input
@@ -96,8 +126,8 @@ let urlencoded = please
               type="email"
               name="email"
               placeholder="Email"
-              value = {email}
-              onChange = {onChangeEmail}
+              value={email}
+              onChange={onChangeEmail}
             />
           </div>
           <div className="mb-3">
@@ -106,25 +136,28 @@ let urlencoded = please
               type="password"
               name="password"
               placeholder="Password"
-              value = {password}
-              onChange ={onChangePassword}
+              value={password}
+              onChange={onChangePassword}
             />
           </div>
-          <button type="submit"  className="btn btn-primary d-block w-100"> Login</button>
-          <Link
-              className="btn btn-primary d-block w-100"
-              role="button"
-              id="createAccount"
-              as={Link}
-              to="/CreateAccountUser"
-              element={CreateAccountUser}
-              data-bs-target="access/index.html"
-            >
-              Create Account
-            </Link>
+          <button type="submit" className="btn btn-primary d-block w-100">
+            {" "}
+            Login
+          </button>
           
-          </form>
-            {/* <Link
+          <Link
+            className="btn btn-primary d-block w-100"
+            role="button"
+            id="createAccount"
+            as={Link}
+            to="/CreateAccountUser"
+            element={CreateAccountUser}
+            data-bs-target="access/index.html"
+          >
+            Create Account
+          </Link>
+        </form>
+        {/* <Link
               className="btn btn-primary d-block w-100"
               role="button"
               id="logInButton"
