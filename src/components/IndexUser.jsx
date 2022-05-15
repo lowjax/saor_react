@@ -3,6 +3,9 @@ import NavbarUser from "./NavbarUser";
 import BodyDiagram from "../img/BodyDiagram.svg";
 import { useFormik } from "formik";
 import SelectionUser from "./SelectionUser";
+import { Spinner } from "react-bootstrap";
+import { useState, useEffect } from "react";
+
 
 
 
@@ -15,6 +18,8 @@ import SelectionUser from "./SelectionUser";
 
 export default function IndexUser() {
   const [openModal, setOpenModal] = React.useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   let formik = useFormik({
     initialValues: {
@@ -54,17 +59,21 @@ export default function IndexUser() {
         console.log(e);
         alert("Sorry, something isn't right");
         //return;
+      })
+      .finally(() => {
+        setLoading((true));
       });
+    }
+    //
+    useEffect(() => {
+  
+     
+        
+    } , [])
+  
 
-    // function handleSubmit(e) {
-    //   e.preventDefault();
-    //   console.log('You clicked submit.');
-
-    //   fetch("http://localhost:1235/api/body", {
-    //     method:"POST"
-    //   }).then(response => response.json()).then(json => console.log(json))
-    // }
-  }
+   
+  
 
   console.log(formik.values.bodyPart)
   return (
@@ -72,6 +81,10 @@ export default function IndexUser() {
     {!openModal &&
       <div>
       <NavbarUser />
+      {loading && <Spinner animation="border" />}
+      {error && (
+        <div>{`There is a problem fetching the post data - ${error}`}</div>
+      )}
       <div id="bodyDigramContainer">
         <img id="bodyDiagram" src={BodyDiagram} height={40} />
       </div>

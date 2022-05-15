@@ -11,7 +11,7 @@ import { useState, useEffect } from "react";
 import { Content } from "../contentdata";
 
 export default function ContentListUser() {
-  function showContent() {
+  
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -28,7 +28,7 @@ export default function ContentListUser() {
         if (response.status == 200) {
           console.log(response);
 
-          alert("Success! have selected sport of aquired injury.");
+          // alert("Success! have selected sport of aquired injury.");
           // setOpenModal(true)
           // window.location.href = "ContentListUser";
           return;
@@ -40,7 +40,7 @@ export default function ContentListUser() {
         alert("Sorry, something isn't right");
         //return;
       });
-  }
+  
 
 
   return (

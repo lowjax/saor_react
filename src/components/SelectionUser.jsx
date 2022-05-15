@@ -10,6 +10,9 @@ import { useState, useEffect } from "react";
 
 
 export default function SelectionUser() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
    function filterContent() {
     
 
@@ -58,15 +61,48 @@ export default function SelectionUser() {
         console.log(e);
         alert("Sorry, something isn't right");
         //return;
+      })
+      .finally(() => {
+        setLoading((true));
       });
+    }
+    //
+    useEffect(() => {
+  
+      // const [loading, setLoading] = useState(true);
+  
+  
+      // const [email, setEmail] = useState("");
+      // const [password, setPassword] = useState("");
+      // Change values based on event, the event being the form input
+      // const onChangeEmail = (e) => {
+      //   const email = e.target.value;
+      //   setEmail(email);
+      // };
+      // const onChangePassword = (e) => {
+      //   const password = e.target.value;
+      //   setPassword(password);
+      // };
+    
+     
+    
+       
+      
+        
+    } , [])
+  
 
     
-  }
+  
   
   
   return (
     <div>
       <NavbarUser />
+      {loading && <Spinner animation="border" />}
+      {error && (
+        <div>{`There is a problem fetching the post data - ${error}`}</div>
+      )}
       <div id="carousellContainer">
         <div className="carousel slide" data-bs-ride="carousel" id="carousel-2">
           <div className="carousel-inner">
