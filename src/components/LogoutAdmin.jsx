@@ -54,7 +54,7 @@ function handleSubmit(e) {
     <div>
       <NavbarAdmin />
       <div id="logoutDiv">
-        <h1 id="logoutHeader">LOGOUT</h1>
+        <h1 id="logoutHeader">FIX ME</h1>
         <p id="logoutParagraph">
           By clicking below you are exiting SAOR, all unsaved progressed will
           deleted. Are you sure you want to logout?
