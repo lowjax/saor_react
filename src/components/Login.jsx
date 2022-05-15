@@ -87,26 +87,6 @@ export default function Login() {
   //
   useEffect(() => {
 
-    // const [loading, setLoading] = useState(true);
-
-
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
-    // Change values based on event, the event being the form input
-    // const onChangeEmail = (e) => {
-    //   const email = e.target.value;
-    //   setEmail(email);
-    // };
-    // const onChangePassword = (e) => {
-    //   const password = e.target.value;
-    //   setPassword(password);
-    // };
-  
-   
-  
-     
-    
-      
   } , [])
 
   return (

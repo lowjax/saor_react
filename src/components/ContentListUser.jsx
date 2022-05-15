@@ -11,6 +11,8 @@ import { useState, useEffect } from "react";
 import { Content } from "../contentdata";
 
 export default function ContentListUser() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -39,13 +41,25 @@ export default function ContentListUser() {
         console.log(e);
         alert("Sorry, something isn't right");
         //return;
+      })
+      .finally(() => {
+        setLoading((true));
       });
+    
+    //
+    useEffect(() => {
+  
+    } , [])
   
 
 
   return (
     <div>
       <NavbarUser />
+      {loading && <Spinner animation="border" />}
+      {error && (
+        <div>{`There is a problem fetching the post data - ${error}`}</div>
+      )}
       <div id="contentContainer">
         <div className="card-group">
           {Content.map(content => (
