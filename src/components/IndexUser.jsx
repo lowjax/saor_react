@@ -20,6 +20,7 @@ export default function IndexUser() {
   const [openModal, setOpenModal] = React.useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [bodyPart,setBodyPart] = useState("")
 
   let formik = useFormik({
     initialValues: {
@@ -46,22 +47,28 @@ export default function IndexUser() {
       .then((response) => {
         console.log(response);
         if (response.status == 200) {
-          console.log(response);
+          // console.log(bodyPart);
 
           alert("Success! have selected a body part.");
           setOpenModal(true)
+          setBodyPart(response)
+          console.log(bodyPart)
           // window.location.href = "SelectionUser";
           return;
         }
       })
+      .then((data) => {
+        JSON.response
+      })
       .catch((e) => {
-        console.log(bodyContent);
+        console.log(response);
         console.log(e);
         alert("Sorry, something isn't right");
         //return;
       })
       .finally(() => {
         setLoading((true));
+        
       });
     }
     //

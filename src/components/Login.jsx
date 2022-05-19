@@ -52,8 +52,9 @@ export default function Login() {
       // redirect: 'follow',
       credentials: "include",
     };
-
     
+    localStorage.setItem("email", email)
+
     fetch("http://localhost:1235/api/users/login", requestOptions)
     // .then(response => response.text())
     // .then(result => console.log(result))
@@ -62,8 +63,7 @@ export default function Login() {
       if (response.status == 200) {
         console.log(response);
         alert("Success! You are now signed in.");
-        // setCookie('email', email, { path: '/' });
-        // setCookie('password', password, { path: '/' });
+        
         window.location.href = "IndexUser";
         return;
       }

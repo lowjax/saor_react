@@ -12,6 +12,9 @@ import { useState, useEffect } from "react";
 export default function SelectionUser() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [sport, setSport] = useState("");
+  const [injury, setInjury] = useState("");
+
 
    function filterContent() {
     
@@ -26,7 +29,8 @@ export default function SelectionUser() {
       // redirect: 'follow'
       credentials: "include",
     };
-    fetch("http://localhost:1235/api/sport", requestOptions)
+    fetch("http://localhost:1235/api/sport/" + bodyPart, requestOptions)
+    // fetch("http://localhost:1235/api/sport/", requestOptions)
       .then((response) => {
         console.log(response);
         if (response.status == 200) {
@@ -57,7 +61,7 @@ export default function SelectionUser() {
         }
       })
       .catch((e) => {
-        console.log(bodyContent);
+        // console.log(bodyContent);
         console.log(e);
         alert("Sorry, something isn't right");
         //return;

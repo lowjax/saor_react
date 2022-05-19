@@ -45,17 +45,20 @@ export default function LogoutUser() {
     console.log('Before Fetch')
 
     fetch("http://localhost:1235/api/users/logout", requestOptions)
-      // .then(response => response.text())
+    
+      // .then((response) => response.json())
       // .then(result => console.log(result))
       // .catch(error => console.log('error', error));
       .then((response) => {
         console.log(response)
-        if (response.status == 200) {
+        if (response.status === 200) {
           console.log(response);
 
-          alert("Success! You are now logged out.");
+          alert("Success! You are now logged out.")
           window.location.href= "Login"
-          return;
+          return
+        } else {
+          console.log("nooooooooooooooooooooo")
         }
       })
       .catch((e) => {
