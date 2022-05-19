@@ -22,7 +22,7 @@ import { useFormik } from "formik";
 // // } , [email])
 
 export default function IndexAdmin() {
-  console.log(userStatus)
+  // console.log(userStatus)
   
   
 let userAuthentication = localStorage.getItem("user_status")

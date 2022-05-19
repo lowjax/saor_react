@@ -1,7 +1,7 @@
 import React from "react";
 import SoarLogo from "../img/SoarLogo.svg";
 import IndexUser from "./IndexUser";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import IndexAdmin from "./IndexAdmin";
 import CreateAccountUser from "./CreateAccountUser";
 import CreateAccountAdmin from "./CreateAccountAdmin";
@@ -61,17 +61,28 @@ export default function Login() {
     // .catch(error => console.log('error', error));
     .then((response) => {
       if (response.status == 200) {
-        console.log(response);
+        // console.log(response);
         alert("Success! You are now signed in.");
-        
-        window.location.href = "IndexUser";
+        return response.json()
+        // window.location.href = "IndexUser";
         return;
       }
       //IF invalid password, do something to tell user
       else {
         alert("Invalid password, try again.");
       }
+      
       // window.location.href= "IndexUser";
+    }).then((json) => {
+      // console.log(json)
+      // console.log(json.user_status)
+      if (json.user_status == 'admin') {
+        // let navigate = useNavigate();
+        // navigate("/IndexAdmin");
+        window.location.href = "IndexAdmin";
+      } else if (json.user_status != 'admin') {
+        window.location.href = "IndexUser";
+      }
     })
     .catch((e) => {
       console.log(bodyContent);

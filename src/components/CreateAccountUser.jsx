@@ -17,6 +17,8 @@ export default function CreateAccountUser() {
     const password = e.target.value;
     setPassword(password);
   }
+
+  
   
   
   // const createUser = (event) => {
@@ -125,6 +127,8 @@ export default function CreateAccountUser() {
                  onChange = {onChangeEmail}
                 />
               </div>
+            </div>
+            <div className="row form-group">
             </div>
             <div className="row form-group">
               <div className="col-sm-4 label-column">
