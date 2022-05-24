@@ -7,17 +7,29 @@ import ContentListUser from "./ContentListUser";
 import { Link } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { useFormik } from "formik";
 
 
-export default function SelectionUser() {
+
+export default function SelectionUser(bodyPart) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [sport, setSport] = useState("");
+  const [sportSelect, setSport] = useState("");
   const [injury, setInjury] = useState("");
+
+  let formik = useFormik({
+    initialValues: {
+      sportSelect: "",
+    },
+    // validationSchema: validateFields,
+    // onSubmit: (values) => {
+    //   alert("form submitted");
+    // },
+  });
 
 
    function filterContent() {
-    
+    console.log(bodyPart)
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -29,7 +41,7 @@ export default function SelectionUser() {
       // redirect: 'follow'
       credentials: "include",
     };
-    fetch("http://localhost:1235/api/sport/" + bodyPart, requestOptions)
+    fetch("http://localhost:1235/api/sport/" + bodyPart.bodyPart, requestOptions)
     // fetch("http://localhost:1235/api/sport/", requestOptions)
       .then((response) => {
         console.log(response);
@@ -48,7 +60,8 @@ export default function SelectionUser() {
         alert("Sorry, something isn't right");
         //return;
       });
-      fetch("http://localhost:1235/api/injury", requestOptions)
+      fetch("http://localhost:1235/api/injury" + sportSelect, requestOptions)
+      // fetch("http://localhost:1235/api/injury", requestOptions)
       .then((response) => {
         console.log(response);
         if (response.status == 200) {
@@ -72,34 +85,11 @@ export default function SelectionUser() {
     }
     //
     useEffect(() => {
-  
-      // const [loading, setLoading] = useState(true);
-  
-  
-      // const [email, setEmail] = useState("");
-      // const [password, setPassword] = useState("");
-      // Change values based on event, the event being the form input
-      // const onChangeEmail = (e) => {
-      //   const email = e.target.value;
-      //   setEmail(email);
-      // };
-      // const onChangePassword = (e) => {
-      //   const password = e.target.value;
-      //   setPassword(password);
-      // };
-    
-     
-    
-       
-      
         
     } , [])
   
 
     
-  
-  
-  
   return (
     <div>
       <NavbarUser />
@@ -170,10 +160,19 @@ export default function SelectionUser() {
         </div>
       </div>
       <div id="selectionContainer1">
-        <form className="form-inline">
+        <form className="form-inline"
+        onSubmit={formik.onSubmit}
+        >
           <div className="form-group">
             <label>SELECT SPORT</label>
-            <select className="form-control">
+            <select className="form-control"
+
+            name="sportSelect"
+            onChange={formik.handleChange}
+            value={formik.values.sportSelect}
+            onBlur={formik.handleBlur}
+            
+            >
             <option>---</option>
               <option value="Skateboarding">Skateboarding</option>
               <option value="Snowboarding">Snowboarding</option>
@@ -188,7 +187,10 @@ export default function SelectionUser() {
         <form className="form-inline">
           <div className="form-group">
             <label>SELECT INJURY TYPE</label>
-            <select className="form-control">
+            <select className="form-control"
+     
+            
+            >
             <option>---</option>
               <option value="Sprain">SPRAIN</option>
               <option value="Break">BREAK</option>

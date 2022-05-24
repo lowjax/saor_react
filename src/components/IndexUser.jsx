@@ -46,6 +46,7 @@ export default function IndexUser() {
     fetch("http://localhost:1235/api/body", requestOptions)
       .then((response) => {
         console.log(response);
+        console.log(formik.values.bodyPart)
         if (response.status == 200) {
           // console.log(bodyPart);
 
@@ -112,7 +113,7 @@ export default function IndexUser() {
       </form>
       <br />
       <div id="selectionContainer">
-      <button type="button" className="btn btn-primary" id="fixMeButton"  onClick={bodySelect}>Logout</button>
+      <button type="button" className="btn btn-primary" id="fixMeButton"  onClick={bodySelect}>FIX ME</button>
       </div>
       <br />
       <br />
@@ -121,7 +122,7 @@ export default function IndexUser() {
     </div>
 }
 { openModal &&
-<SelectionUser />
+<SelectionUser bodyPart={formik.values.bodyPart} />
 }    </>
   );
 }
