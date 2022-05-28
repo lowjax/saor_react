@@ -1,8 +1,8 @@
 import React from "react";
 import NavbarAdmin from "./NavbarAdmin";
-import Climbing from "../img/Climbing.svg";
-import Skateboard from "../img/Skateboard.svg";
-import Surf from "../img/Surf.svg";
+import Climbing from "../../public/Climbing.svg";
+import Skateboard from "../../public/Skateboard.svg";
+import Surf from "../../public/Surf.svg";
 import ContentcontainerAdmin from "./ContentcontainerAdmin";
 import { Link } from "react-router-dom";
 

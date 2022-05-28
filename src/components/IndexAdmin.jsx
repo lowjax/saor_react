@@ -1,6 +1,6 @@
 import React from "react";
 import NavbarAdmin from "./NavbarAdmin";
-import BodyDiagram from "../img/BodyDiagram.svg";
+import BodyDiagram from "../../public/BodyDiagram.svg";
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 

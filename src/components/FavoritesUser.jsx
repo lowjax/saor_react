@@ -1,6 +1,6 @@
 import React from "react";
 import NavbarUser from "./NavbarUser";
-import PhysioContent from "../img/PhysioContent.jpg"
+import PhysioContent from "../../public/PhysioContent.jpg"
 
 
 

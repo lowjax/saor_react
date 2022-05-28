@@ -4,11 +4,11 @@ import { Nav } from "react-bootstrap";
 import LogoutAdmin from "./LogoutAdmin";
 import SelectionAdmin from "./selectionAdmin";
 import { Link } from "react-router-dom";
-import BackAarow from "../img/BackArrow.svg";
+import BackAarow from "../../public/BackArrow.svg";
 import IndexAdmin from "./IndexAdmin";
 import ContentcontainerAdmin from "../components/ContentcontainerAdmin";
 import FavoritesAdmin from "./FavoritesAdmin";
-import SoarLogo from "../img/SoarLogo.svg";
+import SoarLogo from "../../public/SoarLogo.svg";
 import ThemeAdmin from "./ThemeAdmin"
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";

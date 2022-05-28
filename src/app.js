@@ -6,6 +6,7 @@ import { useCookies } from "react-cookie";
 
 
 
+
 // admin imports
 // import { MyUserForm } from "./components/MyUserForm"
 // import { Button } from "react-bootstrap"
@@ -35,13 +36,13 @@ import LogoutUser from "./components/LogoutUser"
 
 
 // import images
-import BackArrow from "./img/BackArrow.svg"
-import Climbing from "./img/Climbing.svg"
-// import PhysioContent from "./img/PhysioContent.svg"
-import Skateboard from "./img/Skateboard.svg"
-import SoarLogo from "./img/SoarLogo.svg"
-import Surf from "./img/Surf.svg"
-import BodyDiagram from "./img/BodyDiagram.svg"
+import BackArrow from "./../public/BackArrow.svg"
+import Climbing from "./../public/Climbing.svg"
+// import PhysioContent from "./../public/PhysioContent.svg"
+import Skateboard from "./../public/Skateboard.svg"
+import SoarLogo from "./../public/SoarLogo.svg"
+import Surf from "./../public/Surf.svg"
+import BodyDiagram from "./../public/BodyDiagram.svg"
 
 
 

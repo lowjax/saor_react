@@ -1,6 +1,6 @@
 import React from "react";
 import NavbarUser from "./NavbarUser";
-import SoarLogo from "../img/SoarLogo.svg";
+import SoarLogo from "../../public/SoarLogo.svg";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 

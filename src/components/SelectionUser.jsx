@@ -1,8 +1,8 @@
 import React from "react";
 import NavbarUser from "./NavbarUser";
-import Climbing from "../img/Climbing.svg"
-import Skateboard from "../img/Skateboard.svg"
-import Surf from "../img/Surf.svg"
+import Climbing from "../../public/Climbing.svg"
+import Skateboard from "../../public/Skateboard.svg"
+import Surf from "../../public/Surf.svg"
 import ContentListUser from "./ContentListUser";
 import { Link } from "react-router-dom";
 import { Spinner } from "react-bootstrap";

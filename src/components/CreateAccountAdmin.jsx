@@ -1,6 +1,6 @@
 import React from "react";
 import NavbarAdmin from "./NavbarAdmin"
-import SoarLogo from "../img/SoarLogo.svg"
+import SoarLogo from "../../public/SoarLogo.svg"
 
 export default function CreateAccountAdmin() {
   return (

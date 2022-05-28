@@ -2,7 +2,7 @@
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Button, Container, Image } from "react-bootstrap";
-import SoarLogo from "../img/SoarLogo.svg"
+import SoarLogo from "../../public/SoarLogo.svg"
 
 function LeSettings() {
     const [lightMode, setLightMode] = React.useState(false);

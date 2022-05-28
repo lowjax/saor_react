@@ -7,8 +7,8 @@ import Login from "./Login";
 import LogoutUser from "./LogoutUser";
 import ThemeUser from "./ThemeUser";
 import SelectionUser from "./SelectionUser";
-import BackAarow from "../img/BackArrow.svg";
-import SoarLogo from "../img/SoarLogo.svg";
+import BackAarow from "../../public/BackArrow.svg";
+import SoarLogo from "../../public/SoarLogo.svg";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 

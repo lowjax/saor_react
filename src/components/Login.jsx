@@ -1,5 +1,5 @@
 import React from "react";
-import SoarLogo from "../img/SoarLogo.svg";
+import SoarLogo from "../../public/SoarLogo.svg";
 import IndexUser from "./IndexUser";
 import { Link, useNavigate } from "react-router-dom";
 import IndexAdmin from "./IndexAdmin";

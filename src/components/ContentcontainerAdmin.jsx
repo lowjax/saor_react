@@ -1,6 +1,6 @@
 import React from "react";
 import NavbarAdmin from "./NavbarAdmin"
-import PhysioContent from "../img/PhysioContent.jpg"
+import PhysioContent from "../../public/PhysioContent.jpg"
 
 export default function ContentcontainerAdmin() {
   return (

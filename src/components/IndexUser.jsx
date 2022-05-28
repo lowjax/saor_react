@@ -1,6 +1,6 @@
 import React from "react";
 import NavbarUser from "./NavbarUser";
-import BodyDiagram from "../img/BodyDiagram.svg";
+import BodyDiagram from "../../public/BodyDiagram.svg";
 import { useFormik } from "formik";
 import SelectionUser from "./SelectionUser";
 import { Spinner } from "react-bootstrap";
@@ -9,9 +9,9 @@ import { useState, useEffect } from "react";
 
 
 
-// import Climbing from "../img/Climbing.svg"
-// import Skateboard from "../img/Skateboard.svg"
-// import Surf from "../img/Surf.svg"
+// import Climbing from "../../public/Climbing.svg"
+// import Skateboard from "../../public/Skateboard.svg"
+// import Surf from "../../public/Surf.svg"
 // import { Link } from "react-router-dom";
 // import ContentListUser from "./ContentListUser";
 
